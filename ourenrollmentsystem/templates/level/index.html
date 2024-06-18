@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+List of levels
+{% endblock title %}
+
+{% block content %}
+{% include "message/messages.html" %}
+<a href="/level/create" class= "btn btn-primary float-end mt-1 me-1">Input Year Level</a>
+<div class= "col-md-6 mx-auto">
+    <div class= "table-responsive">
+        <table class= "table table-hover">
+            <thead>
+                <tr>
+                    <th>Level ID</th>
+                    <th>Level</th>
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for level in level  %}
+                <tr>
+                    <td>{{ level.level_id}} </td>
+                    <td>{{ level.level}} </td>
+                    <td>{{ level.date_created}} </td>
+                    <td>{{ level.date_updated}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>        
+</div>
+{% endblock content %}

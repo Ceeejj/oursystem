@@ -1,0 +1,20 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Create Level
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto mt-3">
+    <form action= "/level_store" method="post">
+        {% csrf_token %}
+        <div class="mb-3"> 
+            <label for="gender"> Level </label>
+            <input type="text" class="form-control" id="level" name="level"/>
+        </div>
+        <button type= "submit" class= "btn btn-success float-end"> Save Year Level </button>
+        <a href="/level" class="btn btn-secondary float-end col-12 col-md-3 me-1"> Back</a>
+    </form> 
+</div>           
+{% endblock content %}
