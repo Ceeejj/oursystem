@@ -6,8 +6,10 @@ Create New Student
 
 {% block content %}
 
+{% include "message/messages.html" %}
+<a href="/level/create" class= "btn btn-primary float-end mt-1 me-1">Create New Information</a>
 <div class="col-md-6 mx-auto mt-3">
-    <form action= "#" method="post">
+    <form action= "/students/store" method="post">
         {% csrf_token %}
         <div class="mb-3"> 
             <label for="first_name"> First Name </label>
@@ -34,19 +36,24 @@ Create New Student
             <input type="text" class="form-control" id="gender" name="gender"/>
         </div>
         <div class="mb-3"> 
+            <label for="program"> Program </label>
+            <input type="text" class="form-control" id="program" name="program"/>
+        </div>
+        <div class="mb-3"> 
             <label for="level_id"> Year Level </label>
-            <select name="level-id" id="level_id" class="form-select">
+            <select name="level_id" id="level_id" class="form-select">
                 <option value= ""> N/A </option>
+                {% for level in level  %}
+                    <option value= "{{level.level_id}}">{{level.level}}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="mb-3"> 
-            <label for="first_name"> Username </label>
-            <input type="text" class="form-control" id="first_name" name="first_name"/>
+            <label for="username"> Username  </label>
+            <input type="text" class="form-control" id="username" name="username"/>
         </div>
-        
-        
-        <button type= "submit" class= "btn btn-success float-end"> Save Year Level </button>
-        <a href="/students" class="btn btn-secondary float-end col-12 col-md-3 me-1"> Back</a>
+        <button type= "submit" class= "btn btn-success float-end"> Pay Tuition</button>
+        <a href="/students" class="btn btn-primary float-end col-12 col-md-3 me-1"> Cancel</a>
     </form> 
 </div>           
 {% endblock content %}

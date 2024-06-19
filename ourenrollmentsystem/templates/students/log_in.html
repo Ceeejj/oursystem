@@ -1,0 +1,44 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+List of Students Information
+{% endblock title %}
+
+{% block content %}
+{% include "message/messages.html" %}
+<div class= "col-md-6 mx-auto">
+    <div class= "table-responsive">
+        <table class= "table table-hover">
+            <thead>
+                <tr>
+                    <th>Student Id</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Program</th>
+                    <th>Year Level</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for students in students %}
+                <tr>
+                    <td>{{students.user_id}}</td>
+                    <td>{{students.first_name}}</td>
+                    <td>{{students.middle_name}}</td>
+                    <td>{{students.last_name}}</td>
+                    <td>{{students.program}}</td>
+                    <td>{{students.level}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/students/show/{{students.user_id}}" class="btn btn-primary">View</a>
+                            <a href="/students/update/{{students.level_id}}" class="btn btn-success">Update</a>
+                            <a href="#" class="btn btn-danger">Drop</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>        
+</div>
+{% endblock content %}

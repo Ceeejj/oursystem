@@ -1,0 +1,53 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Update Student Information
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto mt-3">
+    <form action= "/students/" method="post">
+        {% csrf_token %}
+        <div class="mb-3"> 
+            <label for="first_name"> First Name </label>
+            <input type="text" class="form-control" id="first_name" name="first_name"  value="{{students.first_name}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="middle_name"> Middle Name </label>
+            <input type="text" class="form-control" id="middle_name" name="middle_name" value="{{students.middle_name}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="last_name"> Last Name </label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{students.last_name}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="age"> Age </label>
+            <input type="text" class="form-control" id="age" name="age" value="{{students.age}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="birth_date"> Birth Date </label>
+            <input type="date" class="form-control" id="birth_date" name="birth_date" value="{{students.birth_date}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="gender"> Gender </label>
+            <input type="text" class="form-control" id="gender" name="gender" value="{{students.gender}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="program"> Program </label>
+            <input type="text" class="form-control" id="program" name="program" value="{{students.program}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="level_id"> Year Level </label>
+            <input type="text" class="form-control" id="level_id" name="level_id" value="{{students.level_id}}" />
+        </div>
+        <div class="mb-3"> 
+            <label for="username"> Username  </label>
+            <input type="text" class="form-control" id="username" name="username" value="{{students.username}}" />
+        </div>
+        
+        <button type= "submit" class= "btn btn-success float-end"> Update Information </button>
+        <a href="/students" class="btn btn-secondary float-end col-12 col-md-3 me-1"> Back</a>
+    </form> 
+</div>           
+{% endblock content %}

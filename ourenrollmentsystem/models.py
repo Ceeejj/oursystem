@@ -8,6 +8,9 @@ class Level(models.Model):
     
     class Meta:
         db_table = 'level'
+        
+    def __str__(self):
+        return self.level
 
 class Students(models.Model):
     user_id = models.BigAutoField(primary_key=True, blank=False)
@@ -17,7 +20,7 @@ class Students(models.Model):
     age = models.IntegerField(blank=False)
     birth_date  = models.DateField(blank=False)
     gender = models.CharField(max_length=55,blank=False)
-    course = models.CharField(max_length=55,blank=False)
+    program = models.CharField(max_length=55, default='default_program_value')
     level = models.ForeignKey(Level, on_delete=models.CASCADE)
     username = models.CharField(max_length=55, blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
